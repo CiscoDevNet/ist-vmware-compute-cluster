@@ -26,6 +26,8 @@ servers = {
   }
 }
 ```
+Note thumbprint is optional, but you will need it in case the Certificate Authority that signed the host certificate is not trusted.
+
 
 ## Requirements
 
@@ -79,6 +81,15 @@ Once the target is created, the agent can be added assist.
  ![Variables](images/tf_variable.jpg)
 
 ### Input Requirements 
+
+| Input                |   Type          | Description         | 
+|--------------------|------------------|--------------|
+| hostname | Mandatory |The FQDN or IP address of the host| 
+| license | Optional | A valid license key. Must be present in vSphere| 
+| thumbprint | Optional |The SHA-1 host's thumbprint. You will need to specify in case the Certificate Authority that signed the host certificate is not trusted |
+| maintenance_mode | Optional | Default is true. |
+
+Sample input:
 ```
 servers = {
   host1 = {
